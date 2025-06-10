@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Diseño Web (Wordpress)",
+    "desc": "Desarrollado en WordPress, el sitio ofrece una navegación clara, moderna y adaptativa, diseñada para transmitir confianza, profesionalismo y accesibilidad.",
+    "image": "royallogistic",
+    "category": "wordpress",
+    "links": {
+      "view": "https://www.royallogistic.com.ar"
+    }
+  },
+  {
+    "name": "Mi Portfolio",
+    "desc": "Construido con tecnologías modernas, ofrece un diseño receptivo que funciona perfectamente en todos los dispositivos.",
+    "image": "mi_portfoliov1",
+    "category": "mern",
+    "links": {
+      "code": "https://github.com/Marlo-Byte"
+    }
+  }
+]
