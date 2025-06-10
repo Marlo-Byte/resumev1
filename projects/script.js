@@ -20,10 +20,10 @@ $(document).ready(function () {
 document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === "visible") {
         document.title = "Proyectos | Portafolio Mariano López";
-        $("#favicon").attr("href", "/resumev1/assets/images/favicon.png");
+        $("#favicon").attr("href", "/assets/images/favicon.png");
     } else {
         document.title = "Volver a portfolio";
-        $("#favicon").attr("href", "/resumev1/assets/images/favhand.png");
+        $("#favicon").attr("href", "/assets/images/favhand.png");
     }
 });
 
