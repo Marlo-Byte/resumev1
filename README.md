@@ -13,6 +13,7 @@ Visita mi portafolio en vivo:
 
 ## 📌 Estructura del proyecto
 
+```
 resumev1/
 ├── index.html ← Home & sección “Hogar”
 ├── projects.html ← Proyectos destacados
@@ -24,6 +25,7 @@ resumev1/
 │ └── main.js ← Lógica JS (menú, enlaces, animaciones)
 └── assets/
 └── images/ ← Imágenes y recursos estáticos
+```
 
 ---
 
