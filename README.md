@@ -33,8 +33,9 @@ resumev1/
 
 - **HTML5**, **CSS3**, **JavaScript**
 
-- **MERN Stack** (para proyectos): 
-  - MongoDB, Express, React y Node.js
+- **MERN Stack** (para proyectos):
+
+- *MongoDB, Express, React y Node.js*
 
 - **Animaciones & UX**: navegación por secciones con scroll suave
 
