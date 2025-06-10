@@ -1,3 +1,5 @@
+const BASE_PATH = "/resumev1";
+
 $(document).ready(function () {
 
     $('#menu').click(function () {
