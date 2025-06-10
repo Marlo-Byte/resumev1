@@ -1,7 +1,5 @@
-const BASE_PATH = window.location.hostname === "localhost" ? "" : "/resumev1";
-
-
 $(document).ready(function () {
+
     $('#menu').click(function () {
         $(this).toggleClass('fa-times');
         $('.navbar').toggleClass('nav-toggle');
@@ -22,41 +20,40 @@ $(document).ready(function () {
 document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === "visible") {
         document.title = "Proyectos | Portafolio Mariano López";
-        $("#favicon").attr("href", `${BASE_PATH}/assets/images/favicon.png`);
+        $("#favicon").attr("href", "/resumev1/assets/images/favicon.png");
     } else {
         document.title = "Volver a portfolio";
-        $("#favicon").attr("href", `${BASE_PATH}/assets/images/favhand.png`);
+        $("#favicon").attr("href", "/resumev1/assets/images/favhand.png");
     }
 });
 
 // buscar proyectos de inicio
 function getProjects() {
-    return fetch(`${BASE_PATH}/projects.json`)
+    return fetch("projects.json")
         .then(response => response.json())
-        .then(data => data);
+        .then(data => {
+            return data;
+        });
 }
 
 function showProjects(projects) {
-    const projectsContainer = document.querySelector(".work .box-container");
+    let projectsContainer = document.querySelector(".work .box-container");
     let projectsHTML = "";
 
     projects.forEach(project => {
-        const imgSrc = `${BASE_PATH}/assets/images/projects/${project.image}.png`;
-
-        // Botones condicionales
-        const viewBtn = project.links.view
+        // Verifica si los links están presentes y son válidos
+        let viewBtn = project.links.view && project.links.view !== "#" && project.links.view.trim() !== ""
             ? `<a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> Ver</a>`
             : "";
 
-        const codeBtn = project.links.code
+        let codeBtn = project.links.code && project.links.code !== "#" && project.links.code.trim() !== ""
             ? `<a href="${project.links.code}" class="btn" target="_blank">Código <i class="fas fa-code"></i></a>`
             : "";
 
-        // Template HTML
         projectsHTML += `
         <div class="grid-item ${project.category}">
             <div class="box tilt" style="width: 380px; margin: 1rem">
-                <img src="${imgSrc}" alt="project" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200.png?text=Imagen+no+disponible'; console.error('Imagen no encontrada:', '${imgSrc}')">
+                <img draggable="false" src="/resumev1/assets/images/projects/${project.image}.png" alt="project" />
                 <div class="content">
                     <div class="tag">
                         <h3>${project.name}</h3>
@@ -75,30 +72,43 @@ function showProjects(projects) {
 
     projectsContainer.innerHTML = projectsHTML;
 
-    // Inicializar Isotope
-    const $grid = $('.box-container').isotope({
+    // isotope filter products
+    var $grid = $('.box-container').isotope({
         itemSelector: '.grid-item',
-        layoutMode: 'fitRows'
+        layoutMode: 'fitRows',
+        masonry: {
+            columnWidth: 200
+        }
     });
 
+    // filter items on button click
     $('.button-group').on('click', 'button', function () {
         $('.button-group').find('.is-checked').removeClass('is-checked');
         $(this).addClass('is-checked');
-        const filterValue = $(this).attr('data-filter');
+        var filterValue = $(this).attr('data-filter');
         $grid.isotope({ filter: filterValue });
     });
 }
-
 
 getProjects().then(data => {
     showProjects(data);
 });
 
-// desactivar modo desarrollador
+// disable developer mode
 document.onkeydown = function (e) {
-    if (e.keyCode == 123 || 
-        (e.ctrlKey && e.shiftKey && ['I', 'C', 'J'].includes(String.fromCharCode(e.keyCode))) || 
-        (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+    if (e.keyCode == 123) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
         return false;
     }
 };
