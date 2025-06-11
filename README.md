@@ -14,17 +14,31 @@ Visita mi portafolio en vivo:
 ## 📌 Estructura del proyecto
 
 ```
-resumev1/
-├── index.html ← Home & sección “Hogar”
-├── projects.html ← Proyectos destacados
-├── resume.html ← Mi experiencia y educación
-├── contact.html ← Formulario / datos de contacto
-├── css/
-│ └── styles.css ← Estilos CSS personalizados
-├── js/
-│ └── main.js ← Lógica JS (menú, enlaces, animaciones)
-└── assets/
-└── images/ ← Imágenes y recursos estáticos
+RESUMEV1/
+├── assets/
+│   ├── certificados/          # Imágenes o PDFs de certificados obtenidos
+│   ├── css/
+│   │   ├── 404.css            # Estilos específicos para la página 404
+│   │   └── style.css          # Estilos globales del sitio principal
+│   ├── images/                # Imágenes utilizadas en todo el sitio (perfil, logos, etc.)
+│   └── js/
+│       ├── 404.js             # Lógica para la página 404
+│       ├── app.js             # Código principal de inicialización (quizás para partículas u otros efectos)
+│       ├── particles.min.js   # Librería de partículas ([particles.js](https://vincentgarreau.com/particles.js/))
+│       └── script.js          # Script general del sitio principal
+├── experiencia/
+│   ├── index.html             # Página dedicada a experiencias laborales
+│   ├── script.js              # Funcionalidad específica para esta sección
+│   └── style.css              # Estilos propios para esta página
+├── projects/
+│   ├── index.html             # Página de proyectos realizados
+│   ├── projects.json          # Datos de proyectos para renderizar dinámicamente
+│   ├── script.js              # Script para manejar la lógica de los proyectos
+│   └── style.css              # Estilos específicos de esta sección
+├── 404.html                   # Página de error personalizada
+├── habilidades.json           # Habilidades técnicas (lenguajes, frameworks, etc.)
+├── index.html                 # Página principal del CV
+├── README.md                  # Documentación general del proyecto
 ```
 
 ---
