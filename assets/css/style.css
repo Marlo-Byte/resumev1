@@ -11,6 +11,17 @@
   text-transform: capitalize;
   transition: all 0.2s linear;
 }
+
+:root {
+    --bg-color: #081b29;
+    --second-bg-color: #F7F7F7;
+    --main-color: #00abf0;
+
+    --bg-color-dark: #081b29;
+    --second-bg-color-dark: #1E1E1E;
+    --main-color-dark: #00abf0;
+}
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -220,19 +231,81 @@ header .navbar ul li a:hover {
   z-index: 1;
 }
 .hogar .image {
+  position: relative;
   flex: 1 1 40rem;
+  aspect-ratio: 1 / 1; /* 👈 esto mantiene el contenedor cuadrado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
   z-index: 1;
 }
 .hogar .image img {
   width: 70%;
-  margin-left: 6rem;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
+    border-radius: 50%;
+    border: .2rem solid var(--main-color);
 }
 .hogar .image img:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
+
+.hogar .circle-spin {
+    position: absolute;
+    top: 12%; /* 👈 Centrado vertical */
+    left: 12%; /* 👈 Centrado horizontal */
+    transform: translate(-50%, -50%); /* 👈 Ajuste perfecto al centro */
+    width: 76%; /* un poco más grande que la imagen */
+    height: 76%;
+    border-radius: 50%;
+    border-top: .2rem solid var(--second-bg-color);
+    border-bottom: .2rem solid var(--second-bg-color);
+    border-left: .2rem solid var(--main-color);
+    border-right: .2rem solid var(--main-color);
+    animation: hogarSpinner 8s linear infinite;
+    z-index: 1;
+}
+
+@media (max-width: 480px) {
+
+  .hogar .image {
+    position: relative;
+    width: 80%;
+    max-width: 250px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: auto;
+    z-index: 1;
+  }
+
+  .hogar .image img {
+    width: 85%;
+    border-radius: 50%;
+  }
+
+  .hogar .circle-spin {
+    position: absolute;
+    top: -18%; /* 👈 Centrado vertical */
+    left: 3%; /* 👈 Centrado horizontal */
+    transform: translate(-50%, -50%); /* 👈 Ajuste perfecto al centro */
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+    border-top: 0.2rem solid var(--second-bg-color);
+    border-bottom: 0.2rem solid var(--second-bg-color);
+    border-left: 0.2rem solid var(--main-color);
+    border-right: 0.2rem solid var(--main-color);
+    animation: hogarSpinner 8s linear infinite;
+  }
+}
+
+body.dark-mode .hogar .circle-spin {
+  border-top: .2rem solid var(--second-bg-color-dark);
+    border-bottom: .2rem solid var(--second-bg-color-dark);
+}
+
 .hogar .content h2 {
   font-size: 5rem;
   font-weight: 800;
@@ -366,6 +439,15 @@ body.dark-mode .hogar .btn {
 }
 /* hero media queries ends*/
 /* hero section end */
+
+@keyframes hogarSpinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 /* about section starts */
 .acerca-de {
