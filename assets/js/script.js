@@ -180,8 +180,8 @@ function showProjects(projects) {
                 ? `<a href="${codeLink}" class="btn" target="_blank">Codigo <i class="fas fa-code"></i></a>`
                 : "";
 
-           projectHTML += 
-    `<div class="box tilt">
+            projectHTML +=
+                `<div class="box tilt">
       <img draggable="false" src="${baseURL}assets/images/projects/${project.image}.png" alt="project" />
       <div class="content">
         <div class="tag">

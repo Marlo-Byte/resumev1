@@ -1,3 +1,11 @@
+// Esto obtiene automáticamente la base correcta
+let baseURL = window.location.origin + window.location.pathname;
+
+// Elimina la parte final si termina con un archivo como index.html
+if (!baseURL.endsWith('/')) {
+    baseURL = baseURL.substring(0, baseURL.lastIndexOf('/') + 1);
+}
+
 $(document).ready(function () {
 
     $('#menu').click(function () {
@@ -53,7 +61,7 @@ function showProjects(projects) {
         projectsHTML += `
         <div class="grid-item ${project.category}">
             <div class="box tilt" style="width: 380px; margin: 1rem">
-                <img draggable="false" src="../assets/images/projects/${project.image}.png" alt="project" />
+                <img draggable="false" src="${baseURL}assets/images/projects/${project.image}.png" alt="project" />
                 <div class="content">
                     <div class="tag">
                         <h3>${project.name}</h3>
