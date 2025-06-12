@@ -1732,22 +1732,26 @@ form .button-area {
 /*BOTON DARK O LIGHT*/
 :root {
     --dark-mode-width: 60px;
-    --dark-mode-height: 30px;
+    --dark-mode-height: 32px;
 }
 
 .dark-mode-toggle {
+    border: 2px solid #444;
+    box-shadow: 0 0 5px #6a5af9;
     width: var(--dark-mode-width);
     height: var(--dark-mode-height);
     display: flex;
     align-items: center;
     border-radius: 999px;
-    background-color: #DFDEDE;
+    background: linear-gradient(45deg, #FFD700, #1E1E1E);
     cursor: pointer;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease, box-shadow 0.3s ease;
 }
 
 body.dark-mode .dark-mode-toggle {
-    background-color: white;
+    border-color: #aaa;
+    box-shadow: 0 0 10px #f07f5a;
+    background: linear-gradient(45deg, #FFD700, #1E1E1E);
 }
 
 .dark-mode-toggle .circle {
