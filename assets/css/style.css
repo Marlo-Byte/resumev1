@@ -206,7 +206,9 @@ header .navbar ul li a:hover {
   color: rgb(24, 2, 63);
   display: none;
 }
-
+body.dark-mode #menu {
+  color: white;
+}
 @media (max-width: 768px) {
   #menu {
     display: block;
