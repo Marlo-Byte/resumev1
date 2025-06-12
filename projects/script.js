@@ -1,4 +1,4 @@
-const BASE_PATH = "/resumev1";
+const BASE_PATH = "../";
 
 $(document).ready(function () {
 
