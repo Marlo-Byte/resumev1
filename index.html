@@ -26,25 +26,25 @@
   <img draggable="false" src="./assets/images/preloader.gif" alt="Cargando..." />
 </div> -->
 
-<div class="loader-container" role="alert" aria-busy="true" aria-label="Cargando contenido">
-  <div class="loader"></div>
-  <div class="loader-percentage" aria-live="polite" aria-atomic="true">0%</div>
-</div>
+  <div class="loader-container" role="alert" aria-busy="true" aria-label="Cargando contenido">
+    <div class="loader"></div>
+    <div class="loader-percentage" aria-live="polite" aria-atomic="true">0%</div>
+  </div>
 
-<script>
-  // Animar el porcentaje del 0 al 100%
-  let percentage = 0;
-  const percentageEl = document.querySelector('.loader-percentage');
+  <script>
+    // Animar el porcentaje del 0 al 100%
+    let percentage = 0;
+    const percentageEl = document.querySelector('.loader-percentage');
 
-  const interval = setInterval(() => {
-    if (percentage < 100) {
-      percentage++;
-      percentageEl.textContent = percentage + '%';
-    } else {
-      clearInterval(interval);
-    }
-  }, 30); // Ajusta la velocidad aquí (milisegundos)
-</script>
+    const interval = setInterval(() => {
+      if (percentage < 100) {
+        percentage++;
+        percentageEl.textContent = percentage + '%';
+      } else {
+        clearInterval(interval);
+      }
+    }, 30); // Ajusta la velocidad aquí (milisegundos)
+  </script>
 
   <!-- navbar starts -->
   <header>
@@ -53,7 +53,9 @@
     <div id="menu" class="fas fa-bars"></div>
     <label class="dark-mode-toggle" for="darkModeSwitch">
       <input type="checkbox" id="darkModeSwitch" />
-      <span class="slider"><span class="icon">🌙</span></span>
+      <span class="slider">
+        <span class="thumb"></span>
+      </span>
     </label>
 
     <nav class="navbar">

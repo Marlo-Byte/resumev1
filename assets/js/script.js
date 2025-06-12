@@ -71,38 +71,27 @@ $(document).ready(function () {
 
     // <!-- MODO OSCURO -->
     const darkModeSwitch = document.getElementById("darkModeSwitch");
-    const icon = document.querySelector(".slider .icon"); // Asegúrate de tener este span
 
-    function updateIcon(isDark) {
-        if (icon) {
-            icon.textContent = isDark ? "☀️" : "🌙";
-        }
+if (darkModeSwitch) {
+    // Cargar preferencia guardada
+    const darkModeEnabled = localStorage.getItem("darkMode") === "enabled";
+
+    if (darkModeEnabled) {
+        document.body.classList.add("dark-mode");
+        darkModeSwitch.checked = true;
     }
 
-    if (darkModeSwitch) {
-        // Cargar preferencia guardada
-        const darkModeEnabled = localStorage.getItem("darkMode") === "enabled";
-
-        if (darkModeEnabled) {
+    darkModeSwitch.addEventListener("change", () => {
+        if (darkModeSwitch.checked) {
             document.body.classList.add("dark-mode");
-            darkModeSwitch.checked = true;
+            localStorage.setItem("darkMode", "enabled");
+        } else {
+            document.body.classList.remove("dark-mode");
+            localStorage.setItem("darkMode", "disabled");
         }
+    });
+}
 
-        // Actualizar el ícono al cargar
-        updateIcon(darkModeEnabled);
-
-        darkModeSwitch.addEventListener("change", () => {
-            if (darkModeSwitch.checked) {
-                document.body.classList.add("dark-mode");
-                localStorage.setItem("darkMode", "enabled");
-                updateIcon(true);
-            } else {
-                document.body.classList.remove("dark-mode");
-                localStorage.setItem("darkMode", "disabled");
-                updateIcon(false);
-            }
-        });
-    }
 
 });
 
