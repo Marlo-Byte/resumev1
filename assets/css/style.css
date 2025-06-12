@@ -335,7 +335,7 @@ header .navbar ul li a:hover {
   border-left: .2rem solid var(--main-color);
   border-right: .2rem solid var(--main-color);
   animation: hogarSpinner 8s linear infinite;
-  z-index: 1;
+  z-index: -1;
 }
 
 @media (max-width: 480px) {
