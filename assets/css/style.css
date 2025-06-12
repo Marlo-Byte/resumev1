@@ -17,8 +17,8 @@
   --second-bg-color: #F7F7F7;
   --main-color: #00abf0;
 
-  --bg-color-dark: #081b29;
-  --second-bg-color-dark: #1E1E1E;
+  --bg-color-dark: #4d9fda;
+  --second-bg-color-dark: #1e1e1e;
   --main-color-dark: #00abf0;
 }
 
@@ -1728,86 +1728,70 @@ form .button-area {
 
 /* Dark mode toggle button styling */
 /*BOTON DARK O LIGHT*/
-body {
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.dark-mode {
-  background-color: #121212;
-  color: #f0f0f0;
+:root {
+    --dark-mode-width: 60px;
+    --dark-mode-height: 30px;
 }
 
 .dark-mode-toggle {
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
+    width: var(--dark-mode-width);
+    height: var(--dark-mode-height);
+    display: flex;
+    align-items: center;
+    border-radius: 999px;
+    background-color: #DFDEDE;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
 }
 
-.dark-mode-toggle input {
-  display: none;
+body.dark-mode .dark-mode-toggle {
+    background-color: white;
 }
 
-.slider {
-  position: relative;
-  width: 60px;
-  height: 30px;
-  background-color: #ccc;
-  border-radius: 50px;
-  transition: background-color 0.3s ease;
-  box-sizing: border-box;
+.dark-mode-toggle .circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transform: translateX(4px);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease, background-color 0.5s ease;
 }
 
-.slider::before,
-.slider::after {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+body.dark-mode .dark-mode-toggle .circle {
+    transform: translateX(30px);
+    background-color: #2A2A2C;
 }
 
-.thumb {
-  position: absolute;
-  top: 3px;
-  left: 4px;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+.dark-mode-toggle .circle ion-icon {
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    transition: transform 0.5s ease;
 }
 
-.thumb::before {
-  content: '🌙';
-  transition: opacity 0.3s ease;
+.dark-mode-toggle .circle .moon {
+    color: white;
+    transform: translateY(-120%);
 }
 
-input:checked + .slider .thumb::before {
-  content: '☀️';
+body.dark-mode .dark-mode-toggle .circle .moon {
+    transform: translateY(0);
 }
 
-input:checked + .slider .thumb {
-  transform: translateX(30px);
+.dark-mode-toggle .circle .sun {
+    color: #fc965b;
 }
 
-input:checked + .slider {
-  background-color: #444;
+body.dark-mode .dark-mode-toggle .circle .sun {
+    transform: translateY(120%);
 }
 
-input:checked + .slider::before {
-  opacity: 0;
-}
 
-input:checked + .slider::after {
-  opacity: 1;
-}
-
-input:checked + .slider .thumb {
-  transform: translateX(30px);
-}
 
 
 /*FIN*/
@@ -1817,7 +1801,7 @@ input:checked + .slider .thumb {
 }
 
 body.dark-mode {
-  background-color: #121212;
+  background-color: #1e1e1e;
   color: #f1f1f1;
 }
 
