@@ -1,10 +1,4 @@
-// Esto obtiene automáticamente la base correcta
-let baseURL = window.location.origin + window.location.pathname;
-
-// Elimina la parte final si termina con un archivo como index.html
-if (!baseURL.endsWith('/')) {
-    baseURL = baseURL.substring(0, baseURL.lastIndexOf('/') + 1);
-}
+let baseURL = window.location.origin + '/resumev1/';
 
 $(document).ready(function () {
 
