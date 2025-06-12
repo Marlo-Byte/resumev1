@@ -1,3 +1,11 @@
+// Esto obtiene automáticamente la base correcta
+let baseURL = window.location.origin + window.location.pathname;
+
+// Elimina la parte final si termina con un archivo como index.html
+if (!baseURL.endsWith('/')) {
+    baseURL = baseURL.substring(0, baseURL.lastIndexOf('/') + 1);
+}
+
 $(document).ready(function () {
 
     $('#menu').click(function () {
@@ -172,22 +180,22 @@ function showProjects(projects) {
                 ? `<a href="${codeLink}" class="btn" target="_blank">Codigo <i class="fas fa-code"></i></a>`
                 : "";
 
-            projectHTML += `
-        <div class="box tilt">
-          <img draggable="false" src="../assets/images/projects/${project.image}.png" alt="project" />
-          <div class="content">
-            <div class="tag">
-              <h3>${project.name}</h3>
-            </div>
-            <div class="desc">
-              <p>${project.desc}</p>
-              <div class="btns">
-                ${viewBtn}
-                ${codeBtn}
-              </div>
-            </div>
+           projectHTML += 
+    `<div class="box tilt">
+      <img draggable="false" src="${baseURL}assets/images/projects/${project.image}.png" alt="project" />
+      <div class="content">
+        <div class="tag">
+          <h3>${project.name}</h3>
+        </div>
+        <div class="desc">
+          <p>${project.desc}</p>
+          <div class="btns">
+            ${viewBtn}
+            ${codeBtn}
           </div>
-        </div>`;
+        </div>
+      </div>
+    </div>`;
         });
 
     projectsContainer.innerHTML = projectHTML;
