@@ -22,6 +22,38 @@
   --main-color-dark: #00abf0;
 }
 
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la pantalla */
+    background: #f0f0f0; /* Fondo suave */
+    gap: 1rem;
+  }
+
+  .loader {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #ccc; /* Color base */
+    border-top-color: #4a00e0; /* Color animado */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 10px #4a00e0aa;
+  }
+
+  .loader-percentage {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #4a00e0;
+    user-select: none;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;
