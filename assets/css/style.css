@@ -298,92 +298,104 @@ body.dark-mode #menu {
   z-index: 1;
 }
 
-.hogar .image {
+/* hogar */
+
+.home-img .img-box {
   position: relative;
-  flex: 1 1 40rem;
-  aspect-ratio: 1 / 1;
-  /* 👈 esto mantiene el contenedor cuadrado */
+  width: 32vw;
+  height: 32vw;
+  border-radius: 50%;
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+.home-img .img-box::before,
+.home-img .img-box::after {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: conic-gradient(
+  transparent 0deg 150deg, /* Tramo largo transparente */
+  #76626B 250deg 270deg, /* Segmento color víbora */
+  transparent 270deg 360deg /* Resto transparente */
+);
+  transform: rotate(0deg);
+  animation: rotate-border 10s linear infinite;
+}
+
+body.dark-mode .home-img .img-box::before,
+body.dark-mode .home-img .img-box::after {
+  background: conic-gradient(
+    transparent 0deg 150deg,
+    #689189 250deg 270deg,
+    transparent 270deg 360deg
+  );
+}
+
+.home-img .img-box::after {
+  animation-delay: -5s;
+}
+
+@keyframes rotate-border {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.home-img .img-box .img-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
   z-index: 1;
+  overflow: hidden;
 }
 
-.hogar .image img {
-  width: 70%;
+body.dark-mode .home-img .img-box .img-item {
+
+  background: #1e1e1e;
+
+}
+
+.home-img .img-box .img-item img {
+  position: absolute;
+  top: 30px;
   border-radius: 50%;
-  border: .2rem solid var(--main-color);
+  cursor: pointer;
+  display: block;
+  width: 85%;
+  object-fit: cover;
 }
 
-.hogar .image img:hover {
+.home-img .img-box .img-item img:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-.hogar .circle-spin {
-  position: absolute;
-  top: 12%;
-  /* 👈 Centrado vertical */
-  left: 12%;
-  /* 👈 Centrado horizontal */
-  transform: translate(-50%, -50%);
-  /* 👈 Ajuste perfecto al centro */
-  width: 76%;
-  /* un poco más grande que la imagen */
-  height: 76%;
-  border-radius: 50%;
-  border-top: .2rem solid var(--second-bg-color);
-  border-bottom: .2rem solid var(--second-bg-color);
-  border-left: .2rem solid var(--main-color);
-  border-right: .2rem solid var(--main-color);
-  animation: hogarSpinner 8s linear infinite;
-  z-index: -1;
-}
-
-@media (max-width: 480px) {
-
-  .hogar .image {
-    position: relative;
-    width: 80%;
-    max-width: 250px;
-    aspect-ratio: 1 / 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    margin: auto;
-    z-index: 1;
+@media (max-width: 768px) {
+  .home-img .img-box {
+    width: 60vw;
+    height: 60vw;
   }
 
-  .hogar .image img {
-    width: 85%;
-    border-radius: 50%;
+  .home-img .img-box::before,
+  .home-img .img-box::after {
+    width: 300px;
+    height: 300px;
   }
 
-  .hogar .circle-spin {
-    position: absolute;
-    top: -18%;
-    /* 👈 Centrado vertical */
-    left: 3%;
-    /* 👈 Centrado horizontal */
-    transform: translate(-50%, -50%);
-    /* 👈 Ajuste perfecto al centro */
-    width: 95%;
-    height: 95%;
-    border-radius: 50%;
-    border-top: 0.2rem solid var(--second-bg-color);
-    border-bottom: 0.2rem solid var(--second-bg-color);
-    border-left: 0.2rem solid var(--main-color);
-    border-right: 0.2rem solid var(--main-color);
-    animation: hogarSpinner 8s linear infinite;
+  .home-img .img-box .img-item img {
+    top: 15px;
+    width: 90%;
   }
 }
-
-body.dark-mode .hogar .circle-spin {
-  border-top: .2rem solid var(--second-bg-color-dark);
-  border-bottom: .2rem solid var(--second-bg-color-dark);
-}
-
+/* fin hogar */
 .hogar .content h2 {
   font-size: 5rem;
   font-weight: 800;
@@ -525,10 +537,6 @@ body.dark-mode .hogar .btn {
 
   .socials {
     margin-top: 12rem;
-  }
-
-  .hogar .image img {
-    margin-top: -12rem;
   }
 
   .hogar .content p {
