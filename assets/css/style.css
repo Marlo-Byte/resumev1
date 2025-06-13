@@ -380,14 +380,14 @@ body.dark-mode .home-img .img-box .img-item {
 
 @media (max-width: 768px) {
   .home-img .img-box {
-    width: 60vw;
-    height: 60vw;
+    width: 90vw;
+    height: 90vw;
   }
 
   .home-img .img-box::before,
   .home-img .img-box::after {
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
   }
 
   .home-img .img-box .img-item img {
